@@ -19,7 +19,7 @@ defmodule EchoBot.Mixfile do
 
   defp deps do
     [
-      {:nadia, "~> 0.4"},
+      {:nadia, git: "https://github.com/col/nadia"},
       {:gproc, "0.5.0"},
       {:poison, "~> 2.0", override: true},
       {:telegram, git: "https://github.com/col/telegram"}

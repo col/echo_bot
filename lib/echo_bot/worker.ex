@@ -14,9 +14,11 @@ defmodule EchoBot.Worker do
     {:ok, []}
   end
 
+  def token do: Application.get_env(:echo_bot, :token)
+
   def handle_cast({:handle_message, message}, state) do
     request = Telegram.Request.parse(message)
-    Nadia.send_message(request.chat.id, request.text)
+    Nadia.send_message(request.chat.id, request.text, token: token)
     {:noreply, state}
   end
 

@@ -11,7 +11,7 @@
   "idna": {:hex, :idna, "1.2.0"},
   "metrics": {:hex, :metrics, "1.0.1"},
   "mimerl": {:hex, :mimerl, "1.0.2"},
-  "nadia": {:hex, :nadia, "0.4.0"},
+  "nadia": {:git, "https://github.com/col/nadia", "c0f2d2d3cc348cafe66134c6e0549750813decae", []},
   "poison": {:hex, :poison, "2.1.0"},
   "providers": {:hex, :providers, "1.6.0"},
   "relx": {:hex, :relx, "3.18.0"},
