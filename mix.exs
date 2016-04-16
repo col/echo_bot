@@ -12,7 +12,7 @@ defmodule EchoBot.Mixfile do
 
   def application do
     [
-      applications: [:logger, :nadia, :gproc, :edeliver],
+      applications: [:logger, :nadia, :gproc],
       mod: {EchoBot, []}
     ]
   end

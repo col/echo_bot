@@ -14,7 +14,7 @@ defmodule EchoBot.Worker do
     {:ok, []}
   end
 
-  def token do: Application.get_env(:echo_bot, :token)
+  def token, do: Application.get_env(:echo_bot, :token)
 
   def handle_cast({:handle_message, message}, state) do
     request = Telegram.Request.parse(message)
