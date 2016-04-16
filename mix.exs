@@ -22,7 +22,7 @@ defmodule EchoBot.Mixfile do
       {:nadia, git: "https://github.com/col/nadia"},
       {:gproc, "0.5.0"},
       {:poison, "~> 2.0", override: true},
-      {:telegram, git: "https://github.com/col/telegram"}
+      {:telegram, "~> 0.0.1"}
     ]
   end
 end
