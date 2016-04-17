@@ -24,7 +24,12 @@ defmodule EchoBot.Worker do
   def token, do: Application.get_env(:echo_bot, :token)
 
   def handle_cast({:handle_message, json}, state) do
+    IO.puts "JSON: '#{inspect json}'"
     message = Telegram.Request.parse(json).message
+    IO.puts "Message: #{inspect message}"
+    IO.puts "Chat ID: #{inspect message.chat.id}"
+    IO.puts "Text: #{inspect message.text}"
+    IO.puts "Token: #{inspect token}"
     Nadia.send_message(message.chat.id, message.text, token: token)
     {:noreply, state}
   end

@@ -1,6 +1,10 @@
 # EchoBot
 
-**TODO: Add description**
+## Deployment
+
+    mix edeliver build release --verbose
+    mix edeliver deploy release to production --verbose --version=0.0.x
+    mix edeliver start production --verbose
 
 ## Installation
 
@@ -17,4 +21,3 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
         def application do
           [applications: [:echo_bot]]
         end
-
