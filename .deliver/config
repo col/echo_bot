@@ -2,6 +2,8 @@
 
 APP="echo_bot"
 
+LINK_SYS_CONFIG=/etc/echo_bot.config
+
 BUILD_HOST="bothub.colharris.com"
 BUILD_USER="root"
 BUILD_AT="/git/echo_bot/builds"
