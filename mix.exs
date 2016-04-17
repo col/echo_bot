@@ -3,7 +3,7 @@ defmodule EchoBot.Mixfile do
 
   def project do
     [app: :echo_bot,
-     version: "0.0.2",
+     version: "0.0.3",
      elixir: "~> 1.2",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
@@ -22,7 +22,7 @@ defmodule EchoBot.Mixfile do
 
   def application do
     [
-      applications: [:logger, :nadia, :gproc],
+      applications: [:logger, :poison, :nadia, :telegram, :edeliver],
       mod: {EchoBot, []}
     ]
   end
@@ -30,9 +30,9 @@ defmodule EchoBot.Mixfile do
   defp deps do
     [
       {:nadia, git: "https://github.com/col/nadia"},
-      {:gproc, "0.5.0"},
       {:poison, "~> 2.0"},
-      {:telegram, "~> 0.0.1"}
+      {:telegram, "~> 0.0.2"},
+      {:edeliver, git: "https://github.com/col/edeliver"},
     ]
   end
 end

@@ -10,15 +10,22 @@ defmodule EchoBot.Worker do
   end
 
   def init(name) do
-    :gproc.reg({:n, :l, {:bot, name}})
+    connect_to_hub
+    :global.register_name(name, self)
     {:ok, []}
+  end
+
+  def connect_to_hub do
+    node_name = Application.get_env(:echo_bot, :bot_hub_node)
+    result = Node.connect String.to_atom(node_name)
+    IO.puts "Connecting to bot_hub (#{node_name}): #{result}"
   end
 
   def token, do: Application.get_env(:echo_bot, :token)
 
-  def handle_cast({:handle_message, message}, state) do
-    request = Telegram.Request.parse(message)
-    Nadia.send_message(request.chat.id, request.text, token: token)
+  def handle_cast({:handle_message, json}, state) do
+    message = Telegram.Request.parse(json).message
+    Nadia.send_message(message.chat.id, message.text, token: token)
     {:noreply, state}
   end
 

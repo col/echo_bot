@@ -3,14 +3,16 @@ defmodule EchoBotTest do
   doctest EchoBot
 
   setup do
-    pid = :gproc.where({:n, :l, {:bot, "EchoBot"}})
+    pid = :global.whereis_name("EchoBot")
     {:ok, pid: pid}
   end
 
   test "echos the message", %{pid: pid} do
     request_body = %Telegram.Request{
-      chat: %Telegram.Chat{ id: 123 },
-      text: "hello"
+      message: %Telegram.Message{
+        chat: %Telegram.Chat{ id: 123 },
+        text: "hello"
+      }
     } |> Telegram.Request.encode
     EchoBot.Worker.handle_message(pid, request_body)
     # TODO: This is not really testing anything.

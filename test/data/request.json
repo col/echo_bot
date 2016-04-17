@@ -1,0 +1,22 @@
+{
+  "update_id":131900178,
+  "message":{
+    "message_id":7,
+    "from":{
+      "id":51890598,
+      "first_name":"Col",
+      "last_name":"Harris",
+      "username":"col_harris"
+    },
+    "chat":{
+      "id":-8874425,
+      "title":"Bot Test",
+      "type":"group"
+    },
+    "date":1460837299,
+    "text":"\\/echo@EchoHubBot asdf",
+    "entities":[
+      {"type":"bot_command","offset":0,"length":16}
+    ]
+  }
+}

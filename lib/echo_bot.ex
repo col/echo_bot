@@ -6,5 +6,5 @@ defmodule EchoBot do
     children = [worker(EchoBot.Worker, [])]
     opts = [strategy: :one_for_one, name: EchoBot.Supervisor]
     Supervisor.start_link(children, opts)
-  end
+  end  
 end
