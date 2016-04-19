@@ -37,7 +37,7 @@ defmodule EchoBot.Worker do
 
 
   def handle_call(:version, _from, state) do
-    {:reply, Mix.Project.config[:version], state}
+    {:reply, EchoBot.version, state}
   end
 
 end
