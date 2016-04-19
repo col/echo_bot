@@ -3,7 +3,7 @@ defmodule EchoBot.Mixfile do
 
   def project do
     [app: :echo_bot,
-     version: "0.0.5",
+     version: "0.0.6",
      elixir: "~> 1.2",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
