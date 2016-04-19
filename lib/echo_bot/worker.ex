@@ -12,6 +12,7 @@ defmodule EchoBot.Worker do
   def init(name) do
     connect_to_hub
     :global.register_name(name, self)
+    IO.puts "Registered Bot: #{name}"
     {:ok, []}
   end
 
@@ -32,6 +33,11 @@ defmodule EchoBot.Worker do
     IO.puts "Token: #{inspect token}"
     Nadia.send_message(message.chat.id, message.text, token: token)
     {:noreply, state}
+  end
+
+
+  def handle_call(:version, _from, state) do
+    {:reply, Mix.Project.config[:version], state}
   end
 
 end
