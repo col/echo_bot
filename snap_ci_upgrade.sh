@@ -11,8 +11,12 @@ echo "Version:" $VERSION
 COMMIT_TAG=$(git describe --exact-match HEAD)
 if [ $? == 0 ] && [$COMMIT_TAG == $VERSION]
 then
-  echo "Build release:" $VERSION
-  mix edeliver build release
+  DEPLOYED_VERSION=$( curl -s http://bothub.colharris.com/bots/EchoBot/version )
+  echo "Deployed Version:" $DEPLOYED_VERSION
+
+  echo "Build upgrade from $DEPLOYED_VERSION to $VERSION"
+  mix edeliver build upgrade --with=$DEPLOYED_VERSION --to=$VERSION
+  mix edeliver deploy upgrade to production
 else
   echo "Not a release build"
 fi
