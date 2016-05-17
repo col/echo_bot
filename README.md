@@ -1,5 +1,9 @@
 # EchoBot
 
+## Start Local
+
+    iex --name "echo_bot@127.0.0.1" -S mix
+
 ## Deployment
 
     mix edeliver build release
